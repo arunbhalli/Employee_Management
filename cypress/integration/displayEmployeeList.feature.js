@@ -17,8 +17,9 @@ describe("Display list of employees", () => {
     cy.get("[data-cy=employee-list]").within(() => {
       cy.get("[data-cy=employee-item]")
       .first()
-      .find(".name")
+      .find("[data-cy=full-name]")
       .should("contain", "George Bluth");
     });
   });
 });
+
