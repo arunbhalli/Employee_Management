@@ -14,10 +14,10 @@ class EmployeeList extends Component {
     debugger
   }
   render() {
-    let employeeList = this.state.employees.map((employee) => {
+    let employeeList = this.state.employees.map(employee => {
       return (
         <li key={employee.id} data-cy="employee-item">
-          <p>
+          <p data-cy="full-name">
             {employee.first_name} {employee.last_name}
           </p>
         </li>
