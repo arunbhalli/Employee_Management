@@ -24,7 +24,7 @@ class EmployeeModal extends Component {
         <Modal.Content image data-cy="modal-container">
           <Image data-cy="image" size="small" src={this.state.employee.avatar} wrapped />
           <Modal.Description>
-            <Header data-cy="name"> {this.state.employee.first_name} {this.state.employee.last_name}</Header>
+            <Header data-cy="full-name"> {this.state.employee.first_name} {this.state.employee.last_name}</Header>
             <p data-cy="email">
               Email:{this.state.employee.email}
             </p>
