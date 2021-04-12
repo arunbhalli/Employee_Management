@@ -19,7 +19,7 @@ class EmployeeList extends Component {
       return (
         <Item key={employee.id} data-cy="employee-item">
           <Item.Image
-            className="avatar"
+            data-cy="avatar"
             circular
             size="tiny"
             alt={employee.first_name}
@@ -27,7 +27,7 @@ class EmployeeList extends Component {
           />
 
           <ItemContent verticalAlign="middle">
-            <Item.Header data-cy="name">
+            <Item.Header data-cy="full-name">
               {employee.first_name} {employee.last_name}
             </Item.Header>
           </ItemContent>

@@ -17,13 +17,13 @@ describe("Display list of employees", () => {
     cy.get("[data-cy=employee-list]").within(() => {
       cy.get("[data-cy=employee-item]")
       .first()
-      .find("[data-cy=name]")
+      .find("[data-cy=full-name]")
       .should("contain", "George Bluth");
     });
     it('the list items display an image',() => {
       cy.get("[data-cy=employee-list]")
       .first()
-      .find('.avatar')
+      .find("[data-cy=avatar]")
       .should('be.visible')
     })
   });
