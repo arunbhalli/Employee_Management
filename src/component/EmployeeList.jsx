@@ -27,7 +27,7 @@ class EmployeeList extends Component {
           />
 
           <ItemContent verticalAlign="middle">
-            <Item.Header data-cy="full-name">
+            <Item.Header data-cy="name">
               {employee.first_name} {employee.last_name}
             </Item.Header>
             <Item.Extra>

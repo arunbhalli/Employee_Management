@@ -17,7 +17,7 @@ describe("Display list of employees", () => {
     cy.get("[data-cy=employee-list]").within(() => {
       cy.get("[data-cy=employee-item]")
       .first()
-      .find("[data-cy=full-name]")
+      .find("[data-cy=name]")
       .should("contain", "George Bluth");
     });
     it('the list items display an image',() => {
