@@ -19,7 +19,7 @@ class EmployeeModal extends Component {
       onClose={() => this.setState({ open: false })}
       onOpen={() => this.setState({ open: true })}
       open={this.state.open}
-      trigger={<Button size="tiny" posetive data-cy="view-button"></Button>}
+      trigger={<Button onClick={() => { this.getEmployee() }} size="tiny" positive data-cy="view-button">View</Button>}
       >
         <Modal.Content image data-cy="modal-container">
           <Image data-cy="image" size="small" src={this.state.employee.avatar} wrapped />

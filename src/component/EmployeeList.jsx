@@ -15,7 +15,7 @@ class EmployeeList extends Component {
     this.setState({ employees: employeeData.data.data });
   };
   render() {
-    let employeeList = this.state.employees.map((employee) => {
+    let employeeList = this.state.employees.map(employee => {
       return (
         <Item key={employee.id} data-cy="employee-item">
           <Item.Image
@@ -31,13 +31,15 @@ class EmployeeList extends Component {
               {employee.first_name} {employee.last_name}
             </Item.Header>
             <Item.Extra>
-              <EmployeeModal data-cy={employee.id} />
+              <EmployeeModal id={employee.id} />
             </Item.Extra>
           </ItemContent>
         </Item>
       );
     });
-    return <Item.Group data-cy="employee-list">{employeeList}</Item.Group>;
+    return (
+      <Item.Group data-cy="employee-list">{employeeList}</Item.Group>
+    ) 
   }
 }
 export default EmployeeList;

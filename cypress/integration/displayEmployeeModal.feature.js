@@ -12,7 +12,7 @@ describe("Display of employee modal", () => {
 
   it('the modal features expected content', () => {
     cy.get("[data-cy=modal-container]").within(() => {
-      cy.get("[data.cy=full-name]").should("contain", "George Bluth")
+      cy.get("[data-cy=full-name]").should("contain", "George Bluth")
       cy.get("[data-cy=image]").should("be.visible")
       cy.get("[data-cy=email]").should("contain", "george.bluth@reqres.in")
     });
