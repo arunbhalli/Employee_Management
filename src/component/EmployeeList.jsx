@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-// import EmployeeModal from "./EmployeeModal";
+import EmployeeModal from "./EmployeeModal.jsx";
 import { Item, ItemContent } from "semantic-ui-react";
 
 class EmployeeList extends Component {
@@ -30,6 +30,9 @@ class EmployeeList extends Component {
             <Item.Header data-cy="full-name">
               {employee.first_name} {employee.last_name}
             </Item.Header>
+            <Item.Extra>
+              <EmployeeModal data-cy={employee.id} />
+            </Item.Extra>
           </ItemContent>
         </Item>
       );
