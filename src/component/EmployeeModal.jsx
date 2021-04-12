@@ -1,10 +1,16 @@
 import React, { Component } from "react"
+import axios from "axios"
 import { Modal, Image, Header, Button } from "semantic-ui-react"
 
 class EmployeeModal extends Component {
   state = {
     open: false,
     employee: {}
+  }
+
+  getEmployee = async () => {
+    let employeeData = await axios.get(`https://reqres.in/api/users/${this.props.id}`)
+    this.setState({ employee: employeeData.data.data })
   }
 
   render() {
