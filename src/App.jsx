@@ -1,13 +1,15 @@
 import EmployeeList from './component/EmployeeList.jsx'
 import React, { Component} from "react"
+import  ReactDOM  from  'react-dom';
+import  {Container,Header} from 'semantic-ui-react';
 
 class  App extends Component {
 render() {
   return(
-    <div >
-    <h1 data-cy="header">Employee List </h1>
+    <Container>
+    <Header size="huge" data-cy="header">Employee List </Header>
     <EmployeeList />
-    </div>
+    </Container>
   )
 }
 }
