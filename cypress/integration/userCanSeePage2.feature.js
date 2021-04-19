@@ -1,24 +1,24 @@
-describe("Display list of employees", () => {
-  beforeEach(() => {
-    cy.visit("/");
+describe("Displays the second page", () => {
+  before("vistis the page", () => {
+    cy.visit("/")
   });
 
-  it("display a header", () => {
-    cy.get("[data-cy=header]").should("contain", "Employee List");
+  it("Press next page button", () => {
+    cy.get("[data-cy=next-page]").click()
   });
 
-  it("displays a list with 6 items", () => {
+  it("Shows employee 7 - 12", () => {
     cy.get("[data-cy=employee-list]").within(() => {
       cy.get("[data-cy=employee-item]").should("have.length", 6);
     });
-  });
-  
+  })
+
   it("the list items display the expected content", () => {
     cy.get("[data-cy=employee-list]").within(() => {
       cy.get("[data-cy=employee-item]")
       .first()
-      .find("[data-cy=name]")
-      .should("contain", "George Bluth");
+      .find("[data-cy=full-name]")
+      .should("contain", "Michael Lawson");
     });
     it('the list items display an image',() => {
       cy.get("[data-cy=employee-list]")
@@ -27,5 +27,4 @@ describe("Display list of employees", () => {
       .should('be.visible')
     })
   });
-});
-
+})

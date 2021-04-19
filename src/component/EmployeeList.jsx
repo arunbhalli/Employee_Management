@@ -1,29 +1,45 @@
 import React, { Component } from "react";
 import axios from "axios";
+import EmployeeModal from "./EmployeeModal.jsx";
+import { Item, ItemContent } from "semantic-ui-react";
 
 class EmployeeList extends Component {
   state = {
     employees: [],
   };
-  componentDidMount(){
-    this.getEmployee();
+  componentDidMount() {
+    this.getEmployees();
   }
-  getEmployee= async () => {
-    let employeeData = await axios.get('https://reqres.in/api/users')
-    this.setState({employees: employeeData.data.data})
-    debugger
-  }
+  getEmployees = async () => {
+    let employeeData = await axios.get("https://reqres.in/api/users");
+    this.setState({ employees: employeeData.data.data });
+  };
   render() {
-    let employeeList = this.state.employees.map((employee) => {
+    let employeeList = this.state.employees.map(employee => {
       return (
-        <li key={employee.id} data-cy="employee-item">
-          <p>
-            {employee.first_name} {employee.last_name}
-          </p>
-        </li>
+        <Item key={employee.id} data-cy="employee-item">
+          <Item.Image
+            data-cy="avatar"
+            circular
+            size="tiny"
+            alt={employee.first_name}
+            src={employee.avatar}
+          />
+
+          <ItemContent verticalAlign="middle">
+            <Item.Header data-cy="name">
+              {employee.first_name} {employee.last_name}
+            </Item.Header>
+            <Item.Extra>
+              <EmployeeModal id={employee.id} />
+            </Item.Extra>
+          </ItemContent>
+        </Item>
       );
     });
-    return <ul data-cy="employee-list">{employeeList}</ul>;
+    return (
+      <Item.Group data-cy="employee-list">{employeeList}</Item.Group>
+    ) 
   }
 }
 export default EmployeeList;
